@@ -1,5 +1,6 @@
 from .type_set import TypeSet
 from . import std_types
+from . import arma_types
 
 default = TypeSet()
 default.register(std_types.StdVector)
@@ -13,3 +14,6 @@ default.register(std_types.StdComplexDouble)
 default.register(std_types.StdComplexFloat)
 default.register(std_types.Integral)
 default.register(std_types.Bool)
+default.register(arma_types.ArmadilloColVec)
+default.register(arma_types.ArmadilloRowVec)
+default.register(arma_types.ArmadilloMat)

@@ -2,6 +2,7 @@ import gdb # pylint: disable=E0401
 import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d.axes3d as p3
 import numpy as np
+import mplcursors
 
 from . import data_extractor
 
@@ -44,9 +45,10 @@ def plot_1d(args, plot_function):
                 legend.add(arg)
         else:
             raise PlottingError(f"Unsuitable for plotting: {arg}")
-    
+
     legend.apply()
     plt.grid()
+    mplcursors.cursor()
     plt.show()
 
 
@@ -91,7 +93,7 @@ class Scatter(gdb.Command):
                 legend.add("Data")
             else:
                 raise PlottingError(f"Incorrect number of arguments")
-        
+
         legend.apply()
         plt.grid()
         plt.show()
@@ -138,7 +140,7 @@ class Scatter3D(gdb.Command):
 
                 legend.add(arg)
             elif data.ndim == 1:
-                temp.append(data)  
+                temp.append(data)
             else:
                 raise PlottingError(f"Unsuitable for plotting: {arg}")
 
@@ -148,7 +150,7 @@ class Scatter3D(gdb.Command):
                 legend.add("Data")
             else:
                 raise PlottingError(f"Incorrect number of arguments")
-        
+
         legend.apply()
         plt.grid()
         plt.show()
