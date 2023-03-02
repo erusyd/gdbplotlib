@@ -2,7 +2,6 @@ import gdb # pylint: disable=E0401
 import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d.axes3d as p3
 import numpy as np
-import mplcursors
 
 from . import data_extractor
 
@@ -48,7 +47,6 @@ def plot_1d(args, plot_function):
 
     legend.apply()
     plt.grid()
-    mplcursors.cursor()
     plt.show()
 
 
